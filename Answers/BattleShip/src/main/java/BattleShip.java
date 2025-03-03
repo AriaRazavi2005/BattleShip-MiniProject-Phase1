@@ -1,5 +1,5 @@
 import java.util.Scanner;
-
+//Aria Razavio
 /**
   The BattleShip class manages the gameplay of the Battleship game between two players.
   It includes methods to manage grids, turns, and check the game status.
