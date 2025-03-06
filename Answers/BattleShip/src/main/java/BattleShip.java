@@ -1,6 +1,6 @@
 import java.util.Random;
 import java.util.Scanner;
-//Aria Razavi
+//Aria Razavii
 public class BattleShip {
     static final int GRID_SIZE = 10;
     static final char WATER = '~';
