@@ -81,14 +81,14 @@ public class BattleShip {
 
     static boolean canPlaceShip(char[][] grid, int row, int col, int size, boolean horizontal) {
         if (horizontal) {
-            if (col + size > GRID_SIZE) return false; // Check if ship goes out of bounds horizontally
+            if (col + size > GRID_SIZE) return false;
             for (int i = 0; i < size; i++) {
-                if (grid[row][col + i] != WATER_CHAR) return false; // Check for overlap
+                if (grid[row][col + i] != WATER_CHAR) return false;
             }
         } else {
-            if (row + size > GRID_SIZE) return false; // Check if ship goes out of bounds vertically
+            if (row + size > GRID_SIZE) return false;
             for (int i = 0; i < size; i++) {
-                if (grid[row + i][col] != WATER_CHAR) return false; // Check for overlap
+                if (grid[row + i][col] != WATER_CHAR) return false;
             }
         }
         return true;
@@ -104,18 +104,18 @@ public class BattleShip {
                 int row = input.charAt(0) - 'A';
                 int col = Integer.parseInt(input.substring(1)) - 1;
 
-                if (trackingGrid[row][col] != WATER_CHAR && trackingGrid[row][col] != SHIP_CHAR) { // Check if already attacked
+                if (trackingGrid[row][col] != WATER_CHAR && trackingGrid[row][col] != SHIP_CHAR) {
                     System.out.println("You already attacked this location. Try again.");
                 } else {
                     validShot = true;
                     if (opponentGrid[row][col] == SHIP_CHAR) {
                         System.out.println("Hit!");
                         trackingGrid[row][col] = HIT_CHAR;
-                        opponentGrid[row][col] = HIT_CHAR; // Mark hit on opponent grid
+                        opponentGrid[row][col] = HIT_CHAR;
                     } else {
                         System.out.println("Miss!");
                         trackingGrid[row][col] = MISS_CHAR;
-                        opponentGrid[row][col] = WATER_CHAR; // if there's a miss, just reset the water . Easy peasy
+                        opponentGrid[row][col] = WATER_CHAR;
                     }
                 }
             } else {
@@ -132,11 +132,11 @@ public class BattleShip {
         for (int i = 0; i < GRID_SIZE; i++) {
             for (int j = 0; j < GRID_SIZE; j++) {
                 if (grid[i][j] == SHIP_CHAR) {
-                    return false; // Found a ship that is not sunk
+                    return false;
                 }
             }
         }
-        return true; // No ships found, all are sunk
+        return true;
     }
 
     static boolean isValidInput(String input) {
@@ -148,7 +148,7 @@ public class BattleShip {
             return false;
         }
         String colStr = input.substring(1);
-        // Assuming the user *always* enters a valid number. If not, this will crash.
+
         int col = Integer.parseInt(colStr);
         if (col < 1 || col > 10) {
             return false;
